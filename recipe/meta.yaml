@@ -10,7 +10,8 @@ source:
   sha256: af41d31a910435377483b0034eba6e0da1f2f8b2b5171e78e9439f8fdd66fdbc
 
 build:
-  skip: true  # [py2k]
+  skip: true  # [py2k and py>312]]
+  # https://github.com/yugabyte/psycopg2/pull/7
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 1
 
@@ -24,6 +25,7 @@ requirements:
     - python
     - pip
     - libpq
+    - setuptools
   run:
     - python
   run_constrained:
